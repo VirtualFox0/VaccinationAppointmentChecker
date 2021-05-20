@@ -99,7 +99,7 @@ function sendTelegramMessage(message: string) {
 		try {
 			bot.sendMessage(chatId, message)
 		} catch(err){
-			console.log("error occured during scraping", err)
+			console.log("Error: error sending telegram message ", err)
 		}
 	}
 }
