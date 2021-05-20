@@ -7,7 +7,14 @@
 ## How to get mediation code?
 - Get mediation code with multiple attempts and waiting time from https://impfterminservice.de or 
 - intercept https network traffic for your vaccination centre url
-`https://[vaccinationCentreGroup e.g. 001-iz].impfterminservice.de/rest/suche/termincheck` and change response from `{"termineVorhanden":false,"vorhandeneLeistungsmerkmale":[]}` to `{"termineVorhanden":true,"vorhandeneLeistungsmerkmale":["L921"]}` to get code directly.
+`https://[vaccinationCentreGroup e.g. 001-iz].impfterminservice.de/rest/suche/termincheck` and change response from `{"termineVorhanden":false,"vorhandeneLeistungsmerkmale":[]}` to `{"termineVorhanden":true,"vorhandeneLeistungsmerkmale":["L920", "L921"]}` to get code directly.
+
+### Leistungsmerkmal
+
+* L920 BioNTech
+* L921 Moderna
+* L922 AstraZeneca
+* L923 Johnson&Johnson
 
 # Installation 
 - Install node
