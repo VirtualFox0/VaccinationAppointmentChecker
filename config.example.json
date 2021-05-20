@@ -1,0 +1,18 @@
+{
+	"accessCodeObjects": [
+		{
+			"vaccinationCentre": "name of vaccination centre", 
+			"zip": "zip code",
+			"code": "mediation code",
+			"vaccinationGroup": "00x-iz"
+		},
+		{
+			"vaccinationCentre": "Karlsruhe Kreisimpfzentrum Schwarzwaldhalle Karlsruhe", 
+			"zip": "76137",
+			"code": "AAAA-BBBB-CCCC",
+			"vaccinationGroup": "005-iz"
+		}
+	],
+	"telegram_token": "YOUR TOKEN",
+	"telegram_chatIds": ["YOUR CHAT ID"]
+}
