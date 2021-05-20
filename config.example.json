@@ -13,6 +13,7 @@
 			"vaccinationGroup": "005-iz"
 		}
 	],
+	"schedule_minutes": 2,
 	"telegram_token": "YOUR TOKEN",
 	"telegram_chatIds": ["YOUR CHAT ID"]
 }
