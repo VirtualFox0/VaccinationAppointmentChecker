@@ -1,28 +1,20 @@
 import TelegramBot = require("node-telegram-bot-api")
 import { Base64 } from 'base64-string'
 const axios = require('axios').default
+import { config, AccessCodeObject } from './config'
 
-const config: Config = require('../config.json')
-
-const eventNotBefore = parseDate(config.event_not_before)
-const eventNotAfter = parseDate(config.event_not_after)
-const scheduleMinutes = config.schedule_minutes ? config.schedule_minutes : 2
-const token = config.telegram_token
-const chatIds = config.telegram_chatIds
-const bot = new TelegramBot(token, {polling: true})
+const bot = new TelegramBot(config.telegramToken, {polling: true})
 
 console.log('======== SEND TELEGRAM START MESSAGE')
 sendTelegramMessage("vaccinationAppointmentChecker started ...")
 
-console.log('======== START WITH SCHEDULE INTERVAL: ' + scheduleMinutes + " minutes")
-console.log('eventNotBefore: ' + eventNotBefore)
-console.log('eventNotAfter: ' + eventNotAfter)
+console.log('======== START WITH SCHEDULE INTERVAL: ' + config.scheduleMinutes + " minutes")
+console.log('eventNotBefore: ' + config.eventNotBefore)
+console.log('eventNotAfter: ' + config.eventNotAfter)
 
-const intervalInMinutes = scheduleMinutes * 1000 * 60;
-
-setInterval(() => checkAllAccessCodeObjects(), intervalInMinutes);
-console.log('RUN: ' + new Date())
 checkAllAccessCodeObjects()
+const intervalInMinutes = config.scheduleMinutes * 1000 * 60;
+setInterval(() => checkAllAccessCodeObjects(), intervalInMinutes);
 
 async function checkAllAccessCodeObjects() {
 	console.log('RUN: ' + new Date())
@@ -75,22 +67,6 @@ async function check(accessCodeObject: AccessCodeObject) {
 	}
 }
 
-interface Config {
-	accessCodeObjects: [AccessCodeObject]
-	event_not_before: string | undefined
-	event_not_after: string | undefined
-	schedule_minutes: number
-	telegram_token: string
-	telegram_chatIds: [string]
-}
-
-interface AccessCodeObject {
-	vaccinationCentre: string
-	zip: string
-	code: string
-	vaccinationGroup: string
-}
-
 function buildEntryUrl(accessCodeObject: AccessCodeObject): string {
 	return 'https://' + 
 	accessCodeObject.vaccinationGroup + 
@@ -105,7 +81,7 @@ function buildEventSearchUrl(accessCodeObject: AccessCodeObject): string {
 }
 
 function sendTelegramMessage(message: string) {
-	for (const chatId of chatIds) {
+	for (const chatId of config.telegramChatIds) {
 		try {
 			bot.sendMessage(chatId, message)
 		} catch(err){
@@ -151,16 +127,10 @@ function getCheckedEventDates(responseObject: ResponseObject): Array<EventObject
 }
 
 function isDateInDefinedRange(date: Date): boolean {
-	if (eventNotBefore !== undefined && date < eventNotBefore) return false
-	if (eventNotAfter != undefined && date > eventNotAfter) return false
+	if (config.eventNotBefore !== undefined && date < config.eventNotBefore) return false
+	if (config.eventNotAfter != undefined && date > config.eventNotAfter) return false
 	return true
 }
 
-function parseDate(dateString: string | undefined) : Date | undefined {
-	if (dateString !== undefined) {
-		const date = new Date(dateString)
-		if (!isNaN(date.getTime())) return date
-	}
-	return undefined
-}
+
 
