@@ -24,7 +24,6 @@
     "axios": "^0.21.1",
     "base64-string": "^1.1.2",
     "install": "^0.13.0",
-    "node-schedule": "^2.0.0",
     "node-telegram-bot-api": "^0.53.0",
     "npm": "^7.13.0"
   }
