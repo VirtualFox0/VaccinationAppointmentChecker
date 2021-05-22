@@ -8,7 +8,7 @@ export function sendTelegramMessage(message: string) {
 		try {
 			bot.sendMessage(chatId, message)
 		} catch(err){
-			console.log("Error: error sending telegram message ", err)
+			console.log("Error: error sending telegram message to chatId: " + chatId, err)
 		}
 	}
 }
