@@ -1,10 +1,20 @@
 import TelegramBot = require("node-telegram-bot-api")
 import { config } from './config'
 
-const bot = new TelegramBot(config.telegramToken, {polling: true})
+const bot = new TelegramBot(config.telegramToken, {polling: false})
 
-export function sendTelegramMessage(message: string) {
+export function sendTelegramDebugMessage(message: string) {
 	for (const chatId of config.telegramChatIds) {
+		try {
+			bot.sendMessage(chatId, message)
+		} catch(err){
+			console.log("Error: error sending telegram message to chatId: " + chatId, err)
+		}
+	}
+}
+
+export function sendTelegramGroupMessage(message: string) {
+	for (const chatId of config.telegramGroupChatIds) {
 		try {
 			bot.sendMessage(chatId, message)
 		} catch(err){

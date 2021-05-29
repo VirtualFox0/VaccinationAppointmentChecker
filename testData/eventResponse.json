@@ -1,0 +1,72 @@
+{
+	"gesuchteLeistungsmerkmale":[
+	   "L920",
+	   "L921"
+	],
+	"termine":[
+	   [
+		  {
+			 "slotId":"slot-c6d35cb2-2f68-4e8c-a20e-5beac620113e",
+			 "begin":1622107801000,
+			 "begin_comment": "Thursday, 27. May 2021 09:30:01",
+			 "bsnr":"005220890"
+		  },
+		  {
+			 "slotId":"slot-7d4c8e10-63df-479e-8752-2c5693c50397",
+			 "begin":1625757601000,
+			 "begin_comment": "Thursday, 8. July 2021 15:20:01",
+			 "bsnr":"005220890"
+		  }
+	   ],
+	   [
+			{
+			"slotId":"slot-c6d35cb2-2f68-4e8c-a20e-5beac620113e",
+			"begin":1622280730000,
+			"begin_comment": "Saturday, 29. May 2021 09:32:10",
+			"bsnr":"005220890"
+			},
+			{
+			"slotId":"slot-7d4c8e10-63df-479e-8752-2c5693c50397",
+			"begin":1625757601000,
+			"begin_comment": "Thursday, 8. July 2021 15:20:01",
+			"bsnr":"005220890"
+			}
+		],
+	   [
+		{
+		   "slotId":"slot-c6d35cb2-2f68-4e8c-a20e-5beac620113e",
+		   "begin":1622280730000,
+		   "begin_comment": "Saturday, 29. May 2021 09:32:10",
+		   "bsnr":"005220890"
+		},
+		{
+		   "slotId":"slot-7d4c8e10-63df-479e-8752-2c5693c50397",
+		   "begin":1627551130000,
+		   "begin_comment": "Thursday, 29. July 2021 09:32:10",
+		   "bsnr":"005220890"
+		}
+	 ]
+	],
+	"termineTSS":[
+	   
+	],
+	"praxen":{
+	   "005220890":{
+		  "label":"Kreisimpfzentrum Singen (Landkreis Konstanz)",
+		  "kv":"kv.digital GmbH",
+		  "languages":null,
+		  "lat":47.7612411,
+		  "lon":8.8325771,
+		  "distance":0,
+		  "street":"Hohgarten 4",
+		  "plz":"78224",
+		  "city":"Singen (Hohentwiel)",
+		  "bf":[
+			 ""
+		  ],
+		  "web":"https://www.lrakn.de/kreisimpfzentrum",
+		  "phone":"",
+		  "comment":"Bitte kommen Sie zu Ihrem Impftermin pünktlich. Wir arbeiten die Termine chronologisch ab. Sollten Sie sich in Ausnahmefällen verspäten, haben Sie an diesem Tag bis zum Betriebsschluss die Möglichkeit Ihre Impfung nachzuholen.\n\nUm die Bearbeitungszeit zu verkürzen bitten wir Sie unter https://www.impfen-bw.de/#/vorabregistrierung den Laufzettel auszufüllen und digital oder ausgedruckt mitzubringen."
+	   }
+	}
+ }

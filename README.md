@@ -29,9 +29,17 @@ https://001-iz.impfterminservice.de/assets/static/its/vaccination-list.json
 - Create telegram bot with [Botfather](https://t.me/botfather) (`/newbot`) 
 - save token as `telegram_token` to `config.json`
 - find out your chat id with [IDBot](https://telegram.me/myidbot) (`/getid`)
-- save your telegram chat id to `telegram_chatIds` to `config.json`
+- save your telegram chat id to `telegram_chatIds` to `config.json` (or use a telegram group and save chat id to `telegram_group_chatIds`)
 - send a test message from your telegram account to the newly created bot
 - script will send you a test message after every start
+
+## Usage of Telegram group
+- Create Telegram group 
+- Add your bot to group
+- Adjust the following settings for your bot with BotFather
+  - /setprivacy - disabled
+  - /setjoingroups - enabled
+- Get the group chat id (e.g. from the JSON of https://api.telegram.org/bot<YourBOTToken>/getUpdates)
 
 # Run
 `npm start`

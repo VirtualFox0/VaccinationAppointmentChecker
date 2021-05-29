@@ -1,9 +1,9 @@
-import { sendTelegramMessage } from './telegram'
+import { sendTelegramDebugMessage } from './telegram'
 import { config } from './config'
 import { checkEvents } from './eventChecker'
 
 console.log('======== SEND TELEGRAM START MESSAGE')
-sendTelegramMessage("vaccinationAppointmentChecker started ...")
+sendTelegramDebugMessage("vaccinationAppointmentChecker started ...")
 
 console.log('======== START WITH SCHEDULE INTERVAL: ' + config.scheduleMinutes + " minutes")
 console.log('eventNotBefore: ' + config.eventNotBefore)
@@ -24,3 +24,5 @@ async function checkAllAccessCodeObjects() {
 	}
 }
 
+// https://nodejs.org/docs/v0.3.1/api/process.html#event_exit_
+// https://www.npmjs.com/package/shutdown-hook

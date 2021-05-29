@@ -1,8 +1,11 @@
-import { sendTelegramMessage } from './telegram'
+import { sendTelegramDebugMessage, sendTelegramGroupMessage } from './telegram'
 const axios = require('axios').default
 import { Base64 } from 'base64-string'
 
 import { config, AccessCodeObject } from './config'
+
+// for testing purpose:
+// const eventResponse = require('../testData/eventResponse.json')
 
 export async function checkEvents(accessCodeObject: AccessCodeObject) {
 	console.log("======== Check events for " + accessCodeObject.vaccinationGroup + " " + accessCodeObject.vaccinationCentre)
@@ -28,10 +31,14 @@ export async function checkEvents(accessCodeObject: AccessCodeObject) {
 			const checkedEventPairs = getCheckedEventDates(responseObject)
 			if (checkedEventPairs.length > 0) {
 				console.log("======== SUCCESS: Events found in given range!")
-				sendTelegramMessage("Termine gefunden für \"" + 
+
+				sendTelegramDebugMessage("Termine gefunden für \"" + accessCodeObject.zip + " " + 
 				accessCodeObject.vaccinationCentre + ".\"" + getReadableEventDates(checkedEventPairs) + 
 				"\n\nJetzt Termine buchen: " + 
 				buildEntryUrl(accessCodeObject))
+
+				sendTelegramGroupMessage("Schnell meine Impflinge! Für \"" + accessCodeObject.zip + " " +  
+				accessCodeObject.vaccinationCentre + " sind gerade eben Termine erschienen! Hopp hopp :)!\"" + getReadableEventDates(checkedEventPairs))
 			} else {
 				console.log("======== WARNING: Events not in given range!")
 			}
@@ -40,7 +47,7 @@ export async function checkEvents(accessCodeObject: AccessCodeObject) {
 		}
 	} catch (err) {
 		console.error(err)
-		sendTelegramMessage("Error occured. " + err)
+		sendTelegramDebugMessage("Error occured for " + accessCodeObject.vaccinationCentre + ": " + err)
 	}
 }
 

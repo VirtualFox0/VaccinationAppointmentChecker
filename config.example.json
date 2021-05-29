@@ -17,5 +17,6 @@
 	"event_not_after": "YYYY-MM-DD",
 	"schedule_minutes": 2,
 	"telegram_token": "YOUR TOKEN",
-	"telegram_chatIds": ["YOUR CHAT ID"]
+	"telegram_chatIds": ["YOUR CHAT ID"],
+	"telegram_group_chatIds": ["YOUR CHAT ID"]
 }

@@ -6,7 +6,8 @@ interface JSONConfig {
 	event_not_after: string | undefined
 	schedule_minutes: number
 	telegram_token: string
-	telegram_chatIds: [string]
+	telegram_chatIds: [string],
+	telegram_group_chatIds: [string]
 }
 
 export interface AccessCodeObject {
@@ -23,6 +24,7 @@ class Config {
 	scheduleMinutes = jsonConfig.schedule_minutes ? jsonConfig.schedule_minutes : 2
 	telegramToken = jsonConfig.telegram_token
 	telegramChatIds = jsonConfig.telegram_chatIds
+	telegramGroupChatIds = jsonConfig.telegram_group_chatIds
 
 	parseDate(dateString: string | undefined) : Date | undefined {
 		if (dateString !== undefined) {
