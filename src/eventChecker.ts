@@ -35,10 +35,12 @@ export async function checkEvents(accessCodeObject: AccessCodeObject) {
 				sendTelegramDebugMessage("Termine gefunden für \"" + accessCodeObject.zip + " " + 
 				accessCodeObject.vaccinationCentre + ".\"" + getReadableEventDates(checkedEventPairs) + 
 				"\n\nJetzt Termine buchen: " + 
-				buildEntryUrl(accessCodeObject))
+				buildEntryUrlWithAccessCode(accessCodeObject))
 
 				sendTelegramGroupMessage("Schnell meine Impflinge! Für \"" + accessCodeObject.zip + " " +  
-				accessCodeObject.vaccinationCentre + " sind gerade eben Termine erschienen! Hopp hopp :)!\"" + getReadableEventDates(checkedEventPairs))
+				accessCodeObject.vaccinationCentre + "\" sind gerade eben Termine erschienen! Hopp hopp :)!" + getReadableEventDates(checkedEventPairs) + 
+				"\n\nJetzt Termine buchen: " + 
+				buildEntryUrl(accessCodeObject))
 			} else {
 				console.log("======== WARNING: Events not in given range!")
 			}
@@ -51,11 +53,18 @@ export async function checkEvents(accessCodeObject: AccessCodeObject) {
 	}
 }
 
-function buildEntryUrl(accessCodeObject: AccessCodeObject): string {
+function buildEntryUrlWithAccessCode(accessCodeObject: AccessCodeObject): string {
 	return 'https://' + 
 	accessCodeObject.vaccinationGroup + 
 	'.impfterminservice.de/impftermine/suche/' + 
 	accessCodeObject.code + '/' + accessCodeObject.zip + '/'
+}
+
+function buildEntryUrl(accessCodeObject: AccessCodeObject): string {
+	return 'https://' + 
+	accessCodeObject.vaccinationGroup + 
+	'.impfterminservice.de/impftermine/service/' + 
+	accessCodeObject.zip 
 }
 
 function buildEventSearchUrl(accessCodeObject: AccessCodeObject): string {
