@@ -14,7 +14,7 @@ const intervalInMinutes = config.scheduleMinutes * 1000 * 60;
 setInterval(() => checkAllAccessCodeObjects(), intervalInMinutes);
 
 async function checkAllAccessCodeObjects() {
-	console.log('RUN: ' + new Date())
+	console.log('+++++++++ RUN: ' + new Date())
 	for (const accessCodeObject of config.accessCodeObjects) {
 		try {
 			await checkEvents(accessCodeObject)

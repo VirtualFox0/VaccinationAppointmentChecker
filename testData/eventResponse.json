@@ -20,13 +20,13 @@
 	   ],
 	   [
 			{
-			"slotId":"slot-c6d35cb2-2f68-4e8c-a20e-5beac620113e",
+			"slotId":"slot-test2a",
 			"begin":1622280730000,
 			"begin_comment": "Saturday, 29. May 2021 09:32:10",
 			"bsnr":"005220890"
 			},
 			{
-			"slotId":"slot-7d4c8e10-63df-479e-8752-2c5693c50397",
+			"slotId":"slot-test2b",
 			"begin":1625757601000,
 			"begin_comment": "Thursday, 8. July 2021 15:20:01",
 			"bsnr":"005220890"
@@ -34,13 +34,13 @@
 		],
 	   [
 		{
-		   "slotId":"slot-c6d35cb2-2f68-4e8c-a20e-5beac620113e",
+		   "slotId":"slot-test3a",
 		   "begin":1622280730000,
 		   "begin_comment": "Saturday, 29. May 2021 09:32:10",
 		   "bsnr":"005220890"
 		},
 		{
-		   "slotId":"slot-7d4c8e10-63df-479e-8752-2c5693c50397",
+		   "slotId":"slot-test3b",
 		   "begin":1627551130000,
 		   "begin_comment": "Thursday, 29. July 2021 09:32:10",
 		   "bsnr":"005220890"
