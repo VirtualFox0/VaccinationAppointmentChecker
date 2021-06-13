@@ -9,7 +9,7 @@
 - Get mediation code with multiple attempts and waiting time from https://impfterminservice.de (mediation codes are only available if free vaccination events are available) or 
 - Intercept and modify https network traffic for your vaccination centre urls to get code directly:
   - GET `https://[vaccinationCentreGroup e.g. 001-iz].impfterminservice.de/rest/suche/termincheck`: change response from to `{"termineVorhanden":true,"vorhandeneLeistungsmerkmale":["L920", "L921"]}` and
-  - POST `https://[vaccinationCentreGroup e.g. 001-iz].impfterminservice.de/rest/suche/termincheck/alter`: change response to `{"einzeltermineVorhanden": false, "terminpaareVorhanden": true}` 
+  - POST `https://[vaccinationCentreGroup e.g. 001-iz].impfterminservice.de/rest/suche/termincheck/alter`: change response to `{"einzeltermineVorhanden": false, "terminpaareVorhanden": true}` and set HTTP status code 200
 
 ### Leistungsmerkmal
 
